@@ -831,8 +831,6 @@ class AlpacaStore(with_metaclass(MetaSingleton, object)):
                 self._process_transaction(order_id, trans)
         while True:
             try:
-                if self.q_ordercreate.empty():
-                    continue
                 msg = self.q_ordercreate.get()
                 if msg is None:
                     continue
